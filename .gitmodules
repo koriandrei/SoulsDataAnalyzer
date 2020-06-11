@@ -1,0 +1,9 @@
+[submodule "SoulsFormats"]
+	path = SoulsFormats
+	url = https://github.com/JKAnderson/SoulsFormats.git
+[submodule "SFAnimExtensions"]
+	path = SFAnimExtensions
+	url = https://github.com/Meowmaritus/SFAnimExtensions
+[submodule "ThirdParty/DSAnimStudio"]
+	path = ThirdParty/DSAnimStudio
+	url = https://github.com/Meowmaritus/DSAnimStudio

@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>netcoreapp3.1;net47</TargetFrameworks>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Res\TaeToWeaponKind.yml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\ThirdParty\DSAnimStudio\DSAnimStudio\Res\TAE.Template.BB.xml" Link="Res\TAE.Template.BB.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ThirdParty\DSAnimStudio\DSAnimStudio\Res\TAE.Template.DS1.OBJ.xml" Link="Res\TAE.Template.DS1.OBJ.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ThirdParty\DSAnimStudio\DSAnimStudio\Res\TAE.Template.DS1.xml" Link="Res\TAE.Template.DS1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ThirdParty\DSAnimStudio\DSAnimStudio\Res\TAE.Template.DS3.OBJ.xml" Link="Res\TAE.Template.DS3.OBJ.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ThirdParty\DSAnimStudio\DSAnimStudio\Res\TAE.Template.DS3.xml" Link="Res\TAE.Template.DS3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ThirdParty\DSAnimStudio\DSAnimStudio\Res\TAE.Template.SDT.OBJ.xml" Link="Res\TAE.Template.SDT.OBJ.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ThirdParty\DSAnimStudio\DSAnimStudio\Res\TAE.Template.SDT.xml" Link="Res\TAE.Template.SDT.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="8.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SFAnimExtensions\SFAnimExtensions\SFAnimExtensions.csproj" />
+    <ProjectReference Include="..\SoulsFormats\SoulsFormats\SoulsFormats.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Res\TaeToWeaponKind.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
