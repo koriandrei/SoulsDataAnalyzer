@@ -15,9 +15,9 @@ weapons:
   "27": "ThrustingSword"
   "28": "CurvedSword"
   "29": "Katana"
-  "30": "Mace?"
-  "32": "Mace?"
-  "33": "Mace?"
+  "30": "Mace 1?"
+  "32": "Mace 2?"
+  "33": "Mace 3?"
   "35": "UltraGreatSword?"
   "36": "Spear"
   "38": "Halberd"
@@ -31,51 +31,52 @@ weapons:
   "49": "Torch?"
   "50": "Scythe"
   "51": "CurvedGreatsword?"
-  "52": "IDK"
+  "52": "Unfinished 1"
   "53": "StraightSword2 (Maybe Broadsword?)"
   "54": "StraightSword3 (Maybe WA)"
-  "56": "IDK"
+  "55": "NoAnim1"
+  "56": "NoAnim2"
   "57": "Greatsword2 (Maybe WA?)"
-  "58": "IDK"
-  "59": "Mace? new WA"
-  "60": "IDK"
-  "61": "IDK"
-  "62": "IDK"
+  "58": "NoAnim3"
+  "59": "Great Club?"
+  "60": "NoAnim4"
+  "61": "NoAnim5"
+  "62": "NoAnim6"
   "63": "Partizan?"
-  "64": "IDK"
-  "65": "IDK"
-  "66": "IDK"
+  "64": "NoAnim7"
+  "65": "NoAnim8"
+  "66": "NoAnim9"
   "67": "Greatlance?"
   "68": "Spear?"
   "69": "WA: Overhead slam?"
   "70": "WA: Overhead slam?"
   "71": "Rapier parry"
-  "72": "Sweeps"
-  "73": "IDK"
-  "74": "Attacks"
-  "75": "Attacks"
-  "77": "IDK"
-  "78": "IDK"
-  "79": "IDK"
-  "80": "Attacks"
-  "81": "Bow WA"
-  "82": "Bow WA"
-  "83": "Bow WA"
-  "84": "Crossbow WA"
-  "85": "Crossbow WA"
-  "86": "Attacks"
-  "87": "IDK"
+  "72": "Corvian Greatknife?"
+  "73": "NoAnim10"
+  "74": "UnkGS1"
+  "75": "UnkCS1"
+  "77": "NoAnim11"
+  "78": "NoAnim12"
+  "79": "NoAnim13"
+  "80": "UnkGS2"
+  "81": "Bow WA 1"
+  "82": "Bow WA 2"
+  "83": "Bow WA 3"
+  "84": "Crossbow 1"
+  "85": "Crossbow 2"
+  "86": "Claws 1?"
+  "87": "NoAnim14"
   "88": "Katana 2"
-  "89": "IDK"
-  "90": "Attacks"
+  "89": "NoAnim15"
+  "90": "Katana 3?"
   "91": "Parries"
-  "92": "IDK"
-  "93": "Attacks"
-  "94": "Some actions, maybe abilities?"
-  "95": "UGS attacks?"
-  "96": "IDK"
-  "97": "IDK"
-  "98": "IDK"
+  "92": "NoAnim16"
+  "93": "UnkW1"
+  "94": "UnkA1"
+  "95": "UnkUGS1"
+  "96": "NoAnim17"
+  "97": "NoAnim18"
+  "98": "NoAnim19"
   "99": "CurvedSword2"
   "100": "IDK"
   "101": "CurvedSword3"
@@ -118,79 +119,171 @@ weapons:
   "138": "ExileGreatsword?"
   "139": "BorealDancerDaggers?"
   "140": "UnkWeapon1"
-  "141": "Claws?"
+  "141": "Claws 2?"
   "142": "SellswordTwinblades?"
 animKind:
-  "RH_LightAttacksCombo": "0300[0-2]0"
-  "RH_LightAttackStatCheckFailed": "030040"
-  "RH_FullyChargedAttack": "0303[24]0"
-  "RH_PartiallyChargedAttack": "0303[24]1"
-  "RH_RunningR1": "030500"
-  "RH_RunningR2": "030600"
-  "RH_RollingR1": "0309[0-2]0"
-  "LH_LightAttacksCombo": "0320[036]0"
-  "LH_HeavyAttacksCombo": "032210"
-  "2H_LightAttacksCombo": "0340[0-2]0"
-  "2H_LightAttackStatCheckFailed": "034040"
-  "2H_FullyChargedAttack": "0343[24]0"
-  "2H_PartiallyChargedAttack": "0343[24]1"
-  "2H_RunningR1": "034500"
-  "2H_RunningR2": "034600"
-  "2H_RollingR1": "0349[0-2]0"
-  "2H_Parry??": "036900"
-  "RH_Kick": "030100"
-  "2H_Kick": "034100"
-  "RH_BounceSmall": "030150"
-  "RH_BounceBig": "030200"
-  "LH_BounceSmall": "032150"
-  "LH_BounceBig": "032200"
-  "2H_BounceSmall": "034150"
-  "2H_BounceBig": "034200"
-  "WA_Quickstep": "038..."
-  "WA_Stance": "0362.."
-  "WA_Perseverance": "0377.."
-  "WA_Stomp": "0360.."
-  "WA_Charge": "0367..."
-  "WA_Unk1": "0368.."
-  "WA_QuicksteppySpinSlash??": "0361.."
-  "WA_SpinSlash1": "0349.."
-  "WA_SpinSlash2": "0364.."
-  "WA_WarCry": "0376.."
-  "WA_Sharpen": "0384.."
-  "WA_ShieldSplitter1": "0370.."
-  "WA_ShieldSplitter2": "0384.."
-  "WA_QuickstepAttack": "0363.."
-  "RH_GentlePrayer": "03790."
-  "LH_GentlePrayer": "03791."
-  "WA_Impact (Whip)": "0387.."
-  "WA_Tackle (Crossbow)": "0384.."
-  "WA_RepeatFire": "0382.."
-  "WA_ShieldBash": "0385.."
-  "WA_NeckSwipe": "0383.."
-  "WA_Frost": "0384.."
-  "WA_Scythe_Unk1": "0374.."
-  "WA_Scythe_Unk2": "0375.."
-  "Common_Hit_Light": "00540."
-  "Common_Hit_Medium_1": "00510."
-  "Common_Hit_Medium_2": "00515."
-  "Common_Hit_Medium_3": "0051.."
-  "Common_Hit_Heavy_1": "00520."
-  "Common_Hit_Heavy_2": "00525."
-  "Common_Hit_Heavy_3": "00535."
-  "Common_Hit_Heavy_4": "00560."
-  "Common_Hit_Heavy_5": "00570."
-  "Common_Hit_Heavy_6": "00580."
-  "Common_Hit_Heavy_InPlace": "0059.."
-  "Common_Hit_Knockdown_1": "0053.."
-  "Common_Hit_Knockdown_2": "0055.."
-  "Common_Hit_Knockdown_3": "0055.."
-  "Common_Hit_Kick": "0056.."
-  "Common_Hit_Parried": "0060.."
-  "Common_Hit_Guard": "019[2-4].."
-  "Common_Hit_Guard_Broken": "0195.."
-  "Common_Switch_Weapons": "0290[19]."
-  "Common_2Hand": "02905."
-  "Common_Hit_Additive": "010..."
-  "Common_Spell_StartCast": "04[0-3]0.."
-  "Common_Spell_SustainCast": "04[0-3]1.."
-  "Common_Spell_FinishCast": "04[0-3]3.."
+  "RH_LightAttacksCombo":
+    "Details":
+      "3000.": "LightAttack1_Idle"
+      "3001.": "LightAttack2_Transit"
+      "3002.": "LightAttack1_Transit"
+  "RH_LightAttackStatCheckFailed": 
+    "Regex": "30040"
+  "RH_FullyChargedAttack":
+    "Details":
+      "30320": "FullyCharged1"
+      "30340": "FullyCharged2"
+  "RH_PartiallyChargedAttack":
+    "Details":
+      "30321": "PartiallyCharged1"
+      "30341": "PartiallyCharged2"
+  "RH_RunningR1":
+    "Regex": "30500"
+  "RH_RunningR2":
+    "Regex": "30600"
+  "RH_RollingR1":
+    "Regex": "309[0-2]0"
+  "LH_LightAttacksCombo":
+    "Details":
+      "3200.": "LightAttack1_Idle"
+      "3203.": "LightAttack2_Transit"
+      "3206.": "LightAttack1_Transit"
+  "LH_HeavyAttackCombo":
+    "Regex": "32210"
+  "2H_LightAttacksCombo":
+    "Details":
+      "3400.": "LightAttack1_Idle"
+      "3401.": "LightAttack2_Transit"
+      "3402.": "LightAttack1_Transit"
+  "2H_LightAttackStatCheckFailed":
+    "Regex": "34040"
+  "2H_FullyChargedAttack":
+    "Details":
+      "34320": "FullyCharged1_Idle"
+      "34340": "FullyCharged2_Transit"
+  "2H_PartiallyChargedAttack":
+    "Details":
+      "34321": "PartiallyCharged1"
+      "34341": "PartiallyCharged2"
+  "2H_RunningR1":
+    "Regex": "34500"
+  "2H_RunningR2":
+    "Regex": "34600"
+  "2H_RollingR1":
+    "Regex": "349[0-2]0"
+  "2H_Parry??":
+    "Regex": "36900"
+  "RH_Kick":
+    "Regex": "30100"
+  "2H_Kick":
+    "Regex": "34100"
+  "RH_BounceSmall":
+    "Regex": "30150"
+  "RH_BounceBig":
+    "Regex": "30200"
+  "LH_BounceSmall":
+    "Regex": "32150"
+  "LH_BounceBig":
+    "Regex": "32200"
+  "2H_BounceSmall":
+    "Regex": "34150"
+  "2H_BounceBig":
+    "Regex": "34200"
+  "WA_Quickstep":
+    "Regex": "38..."
+  "WA_Stance":
+    "Regex": "362.."
+  "WA_Perseverance":
+    "Regex": "377.."
+  "WA_Stomp":
+    "Regex": "360.."
+  "WA_Charge":
+    "Regex": "367..."
+  "WA_Unk1":
+    "Regex": "368.."
+  "WA_QuicksteppySpinSlash??":
+    "Regex": "361.."
+  "WA_SpinSlash1":
+    "Regex": "349.."
+  "WA_SpinSlash2":
+    "Regex": "364.."
+  "WA_WarCry":
+    "Regex": "376.."
+  "WA_Sharpen":
+    "Regex": "384.."
+  "WA_ShieldSplitter1":
+    "Regex": "370.."
+  "WA_ShieldSplitter2":
+    "Regex": "384.."
+  "WA_QuickstepAttack":
+    "Regex": "363.."
+  "RH_GentlePrayer":
+    "Regex": "3790."
+  "LH_GentlePrayer":
+    "Regex": "3791."
+  "WA_Impact (Whip)":
+    "Regex": "387.."
+  "WA_Tackle (Crossbow)":
+    "Regex": "384.."
+  "WA_RepeatFire":
+    "Regex": "382.."
+  "WA_ShieldBash":
+    "Regex": "385.."
+  "WA_NeckSwipe":
+    "Regex": "383.."
+  "WA_Frost":
+    "Regex": "384.."
+  "WA_BlindSpot":
+    "Regex": "387.."
+  "WA_Scythe_Unk1":
+    "Regex": "374.."
+  "WA_Scythe_Unk2":
+    "Regex": "375.."
+  "Common_Hit_Light":
+    "Regex": "0540."
+  "Common_Hit_Medium_1":
+    "Regex": "0510."
+  "Common_Hit_Medium_2":
+    "Regex": "0515."
+  "Common_Hit_Medium_3":
+    "Regex": "051.."
+  "Common_Hit_Heavy_1":
+    "Regex": "0520."
+  "Common_Hit_Heavy_2":
+    "Regex": "0525."
+  "Common_Hit_Heavy_3":
+    "Regex": "0535."
+  "Common_Hit_Heavy_4":
+    "Regex": "0560."
+  "Common_Hit_Heavy_5":
+    "Regex": "0570."
+  "Common_Hit_Heavy_6":
+    "Regex": "0580."
+  "Common_Hit_Heavy_InPlace":
+    "Regex": "059.."
+  "Common_Hit_Knockdown_1":
+    "Regex": "053.."
+  "Common_Hit_Knockdown_2":
+    "Regex": "055.."
+  "Common_Hit_Knockdown_3":
+    "Regex": "055.."
+  "Common_Hit_Kick":
+    "Regex": "056.."
+  "Common_Hit_Parried":
+    "Regex": "060.."
+  "Common_Hit_Guard":
+    "Regex": "19[2-4].."
+  "Common_Hit_Guard_Broken":
+    "Regex": "195.."
+  "Common_Switch_Weapons":
+    "Regex": "290[19]."
+  "Common_SwitchToTwoHanded":
+    "Regex": "2905."
+  "Common_Hit_Additive":
+    "Regex": "10..."
+  "Common_Spell_StartCast":
+    "Regex": "4[0-3]0.."
+  "Common_Spell_SustainCast":
+    "Regex": "4[0-3]1.."
+  "Common_Spell_FinishCast":
+    "Regex": "4[0-3]3.."

@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
+using YamlDotNet.Core.Tokens;
 
 namespace SoulsFrameDataAnalyzer
 {
@@ -15,6 +16,7 @@ namespace SoulsFrameDataAnalyzer
 		public string animName;
 		public List<(float attackStart, float attackEnd)> Attacks = new List<(float attackStart, float attackEnd)>();
 		internal float RecoveryStart = -1;
+		internal string details;
 
 		public TAE.Animation anim { get; internal set; }
 
@@ -37,9 +39,38 @@ namespace SoulsFrameDataAnalyzer
 
 	class TAEAnalyzerData
 	{
+		public class AnimData
+		{
+			public string Regex { get; private set; }
+			public IDictionary<string, string> Details { get; private set; }
+
+			private IDictionary<Regex, string> cachedRegexToDetails;
+
+			public bool TryGetDetails(string animDataName, TAE.Animation anim, out string details)
+			{
+				if (cachedRegexToDetails == null)
+				{
+					cachedRegexToDetails = (Details == null ? (IEnumerable<KeyValuePair<string, string>>) new KeyValuePair<string, string>[0] { } : Details).Concat(Regex == null ? new KeyValuePair<string, string>[0] { } : new[] { new KeyValuePair<string, string>(Regex, animDataName) }).ToDictionary(kvp => new Regex(kvp.Key), kvp => kvp.Value);
+				}
+
+				foreach(var kvp in cachedRegexToDetails)
+				{
+					if (kvp.Key.IsMatch(anim.ID.ToString()))
+					{
+						details = kvp.Value;
+						return true;
+					}
+				}
+
+				details = "not found";
+
+				return false;
+			}
+		}
+
 		public IDictionary<string, string> weapons { get; private set; }
 
-		public IDictionary<string, string> animKind { get; private set; }
+		public IDictionary<string, AnimData> animKind { get; private set; }
 	}
 
 	class Program
@@ -76,14 +107,18 @@ namespace SoulsFrameDataAnalyzer
 					.SelectMany(myTuple => analyzerData.animKind.Select(animKindKvp => (weaponKindKvp: myTuple.kvp, animKindKvp: animKindKvp, weaponTae: myTuple.weaponTae)))
 					.SelectMany(myTuple =>
 					{
-						var regex = new Regex($@"a..._{myTuple.animKindKvp.Value}\.hkt");
+						var attackTimings = myTuple.weaponTae.Animations.Select(anim => {
 
-						var attackTimings = myTuple.weaponTae.Animations.Where(anim => regex.IsMatch(anim.AnimFileName))
-							.Select(anim => (anim, events: anim.Events.Where(taeEvent => taeEvent.Type == attackEventType || taeEvent.Type == jumpTableEventType)))
+						bool didFind = myTuple.animKindKvp.Value.TryGetDetails(myTuple.animKindKvp.Key, anim, out string details);
+
+							return (found: didFind, myTuple: myTuple, anim, details); })
+						.Where(d =>d.found)
+							.Select(anim => (anim, events: anim.anim.Events.Where(taeEvent => taeEvent.Type == attackEventType || taeEvent.Type == jumpTableEventType)))
 							.Where(events => events.events.Any())
 							.Select(anim => anim.events.Aggregate(new AttackInfo(), (attackInfo, taeEvent) =>
 							{
-								attackInfo.anim = anim.anim;
+								attackInfo.anim = anim.anim.anim;
+								attackInfo.details = anim.anim.details;
 								if (taeEvent.Type == attackEventType)
 								{
 									taeEvent.ApplyTemplate(false, attackEventTemplate);
@@ -114,21 +149,31 @@ namespace SoulsFrameDataAnalyzer
 
 			System.IO.TextWriter output = new System.IO.StreamWriter("out.csv");
 
-			foreach (var animKindData in analyzedWeapons.ToLookup(data => data.data.animKindKvp.Key).OrderBy(data=>data.Key))
+			foreach (var animKindData in analyzedWeapons.ToLookup(data => data.data.animKindKvp.Key)) //.OrderBy(data=>data.Key))
 			{
 				output.WriteLine(animKindData.Key);
 
 				foreach (var weaponKindData in animKindData.ToLookup(data => data.data.weaponKindKvp.Value).OrderBy(weaponKindData => weaponKindData.FirstOrDefault().attackInfo?.RecoveryStart))
 				{
+					if (!ShouldExportWeapon(weaponKindData.Key))
+					{
+						continue;
+					}
+
 					output.WriteLine($",{weaponKindData.Key}");
 
 					foreach (var animData in weaponKindData)
 					{
-						output.WriteLine($",,{animData.attackInfo.anim.AnimFileName},{animData.attackInfo.Attacks.Aggregate("", (currentString, attackData) => currentString += attackData.attackStart + "," + attackData.attackEnd + ",")}{animData.attackInfo.RecoveryStart}");
+
+						output.WriteLine($",,{animData.attackInfo.anim.ID},{animData.attackInfo.anim.AnimFileName},{animData.attackInfo.details},{animData.attackInfo.Attacks.OrderBy(attack=> attack.attackStart).Aggregate("", (currentString, attackData) => currentString += attackData.attackStart + "," + attackData.attackEnd + ",")}{animData.attackInfo.RecoveryStart}");
 					}
 				}
 			}
 		}
 
+		private static bool ShouldExportWeapon(string weaponKind)
+		{
+			return weaponKind != "IDK" && !weaponKind.StartsWith("NoAnim") && !weaponKind.StartsWith("Unk");
+		}
 	}
 }
